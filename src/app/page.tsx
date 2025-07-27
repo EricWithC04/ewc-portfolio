@@ -1,7 +1,9 @@
+import { Navbar } from "@/components/customs/Navbar/Navbar";
+
 export default function Home() {
   return (
-    <div className="">
-      <h1>Hola Mundo</h1>
+    <div className="min-h-[120vh]">
+      <Navbar></Navbar>
     </div>
   );
 }
