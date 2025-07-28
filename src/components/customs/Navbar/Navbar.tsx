@@ -15,7 +15,7 @@ export const Navbar = () => {
     }, [])
 
     return (
-        <nav className={`fixed py-6 px-8 w-full top-0 flex justify-between ${scroll ? "bg-black/80 backdrop-blur-md shadow shadow-red-500 border-b border-neutral-500/20": "bg-black"} duration-300 text-neutral-500`}>
+        <nav className={`z-100 fixed py-6 px-8 w-full top-0 flex justify-between ${scroll ? "bg-black/80 backdrop-blur-md shadow shadow-red-500 border-b border-neutral-500/20": "bg-black"} duration-300 text-neutral-500`}>
             <h1 className="text-2xl text-red-500 font-semibold">{"<EWC/>"}</h1>
             <div className="flex items-center gap-6">
                 <ul className="flex gap-6 [&>li>a]:font-semibold [&>li>a]:hover:text-red-500 [&>li>a]:hover:text-lg [&>li>a]:duration-300">
