@@ -9,15 +9,32 @@ export const Hero = () => {
     const [displayedText, setDisplayedText] = useState<string>("")
     const fullText = "Desarrollador de Software Fullstack y Freelancer"
 
+    const [currentImage, setCurrentImage] = useState<number>(0)
+
+    const images = [
+        "./images/hero-img-1.jpg",
+        "./images/hero-img-2.jpg",
+        "./images/hero-img-3.jpg",
+        "./images/hero-img-4.jpg",
+    ]
+
     useEffect(() => {
         let index = 0;
         const interval = setInterval(() => {
-        setDisplayedText(fullText.slice(0, index));
-        index++;
-        if (index > fullText.length) clearInterval(interval);
-    }, 40);
+            setDisplayedText(fullText.slice(0, index));
+            index++;
+            if (index > fullText.length) clearInterval(interval);
+        }, 40);
 
-    return () => clearInterval(interval);
+        return () => clearInterval(interval);
+    }, [])
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentImage((prevImage) => (prevImage + 1) % images.length);
+        }, 4000)
+
+        return () => clearInterval(interval)
     }, [])
 
     return (
@@ -28,16 +45,16 @@ export const Hero = () => {
 
             <div className='relative z-10 pt-32 pb-16'>
                 <div className="h-[100%] grid lg:grid-cols-2">
-                    <motion.div 
-                        initial={{ opacity: 0, x: -50 }} 
-                        animate={{ opacity: 1, x: 0 }} 
+                    <motion.div
+                        initial={{ opacity: 0, x: -50 }}
+                        animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8 }}
                     >
                         <div className='flex flex-col gap-8 text-white'>
                             <span className='bg-red-500/10 text-red-500 border border-red-500 text-md font-semibold px-4 py-2 rounded-full shadow w-fit'>¡Disponible para proyectos!</span>
                             <h1 className='text-6xl font-bold'>Hola, soy <span className='bg-gradient-to-b from-red-500 to-red-600 bg-clip-text text-transparent'>Eric</span></h1>
                             <h2 className='text-4xl font-bold'>
-                                {displayedText} 
+                                {displayedText}
                                 <motion.span
                                     className="inline-block w-3 h-10 bg-red-500/40 ml-2"
                                     animate={{ opacity: [1, 0] }}
@@ -73,7 +90,20 @@ export const Hero = () => {
                                 transition={{ duration: 0.8, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }}
                             ></motion.div>
                             <div className='relative flex items-center justify-center h-96 w-96 rotate-45 rounded-3xl overflow-hidden'>
-                                <img className='h-[140%] min-w-[140%] w-[140%] absolute -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 object-cover rounded-lg rotate-[-45deg]' src="./placeholder.svg" alt="imagen" />
+                                {images.map((image, index) => (
+                                    <motion.div
+                                        key={index}
+                                        className="absolute inset-0"
+                                        initial={{ opacity: 0, scale: 1.2 }}
+                                        animate={{
+                                            opacity: index === currentImage ? 1 : 0,
+                                            scale: index === currentImage ? 1 : 1.2
+                                        }}
+                                        transition={{ duration: 1, ease: "easeInOut" }}
+                                    >
+                                        <img className='h-[140%] min-w-[140%] w-[140%] absolute -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 object-cover rounded-lg rotate-[-45deg]' src={image} alt="imagen" />
+                                    </motion.div>
+                                ))}
                             </div>
                         </div>
                     </motion.div>
