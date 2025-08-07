@@ -18,6 +18,25 @@ export const Hero = () => {
         "./images/hero-img-4.jpg",
     ]
 
+    const imagesTexts = [
+        {
+            title: "Desarrollo Desktop",
+            description: "Aplicaciones para Windows y Linux."
+        },
+        {
+            title: "Desarrollo Web",
+            description: "Aplicaciones web modernas."
+        },
+        {
+            title: "Apps Móviles",
+            description: "Desarrollo de Apps para celulares."
+        },
+        {
+            title: "Videojuegos",
+            description: "Experiencias interactivas."
+        },
+    ]
+
     useEffect(() => {
         let index = 0;
         const interval = setInterval(() => {
@@ -102,6 +121,20 @@ export const Hero = () => {
                                         transition={{ duration: 1, ease: "easeInOut" }}
                                     >
                                         <img className='h-[140%] min-w-[140%] w-[140%] absolute -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 object-cover rounded-lg rotate-[-45deg]' src={image} alt="imagen" />
+                                    </motion.div>
+                                ))}
+                            </div>
+                            <div className='absolute top-90 left-10 text-white w-1/2'>
+                                {imagesTexts.map((image, index) => (
+                                    <motion.div
+                                        key={`i${index}`}
+                                        className='absolute inset-0 w-full'
+                                        initial={{ opacity: 0, x: -50 }}
+                                        animate={{ opacity: index === currentImage ? 1 : 0, x: index === currentImage ? 0 : -50 }}
+                                        transition={{ duration: 1, ease: "easeInOut" }}
+                                    >
+                                        <h1 className='text-2xl font-bold'>{image.title}</h1>
+                                        <p className='text-lg'>{image.description}</p>
                                     </motion.div>
                                 ))}
                             </div>
