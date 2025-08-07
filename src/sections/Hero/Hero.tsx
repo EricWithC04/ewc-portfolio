@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Download, Play, ArrowRight } from 'lucide-react'
 import { motion } from 'framer-motion'
+import Image from "next/image"
 
 export const Hero = () => {
 
@@ -12,10 +13,10 @@ export const Hero = () => {
     const [currentImage, setCurrentImage] = useState<number>(0)
 
     const images = [
-        "./images/hero-img-1.jpg",
-        "./images/hero-img-2.jpg",
-        "./images/hero-img-3.jpg",
-        "./images/hero-img-4.jpg",
+        "/images/hero-img-1.jpg",
+        "/images/hero-img-2.jpg",
+        "/images/hero-img-3.jpg",
+        "/images/hero-img-4.jpg",
     ]
 
     const imagesTexts = [
@@ -120,7 +121,13 @@ export const Hero = () => {
                                         }}
                                         transition={{ duration: 1, ease: "easeInOut" }}
                                     >
-                                        <img className='h-[140%] min-w-[140%] w-[140%] absolute -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 object-cover rounded-lg rotate-[-45deg]' src={image} alt="imagen" />
+                                        <Image 
+                                            className='h-[140%] min-w-[140%] w-[140%] absolute -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 object-cover rounded-lg rotate-[-45deg]' 
+                                            src={image} 
+                                            alt="imagen"
+                                            width={800}
+                                            height={600} 
+                                        />
                                     </motion.div>
                                 ))}
                             </div>
