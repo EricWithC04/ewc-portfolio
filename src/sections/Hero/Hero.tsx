@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button'
 import { Download, Play, ArrowRight } from 'lucide-react'
 import { motion } from 'framer-motion'
 import Image from "next/image"
+import { TechCarrousel } from '@/components/customs/TechCarrousel/TechCarrousel'
 
 export const Hero = () => {
 
@@ -58,7 +59,7 @@ export const Hero = () => {
     }, [])
 
     return (
-        <section className='px-16 relative w-full h-screen bg-black'>
+        <section className='px-16 relative w-full min-h-screen bg-black'>
             <div className="absolute inset-0 bg-gradient-to-br from-black via-black to-[#111]"></div>
             <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-red-600/5 rounded-full blur-3xl"></div>
             <div className="absolute bottom-1/6 left-1/4 w-64 h-64 bg-red-600/10 rounded-full blur-2xl"></div>
@@ -148,6 +149,9 @@ export const Hero = () => {
                         </div>
                     </motion.div>
                 </div>
+                <motion.div className='flex items-center justify-center w-full mt-60' initial={ { opacity: 1 } }>
+                    <TechCarrousel></TechCarrousel>
+                </motion.div>
             </div>
         </section>
     )
