@@ -39,21 +39,41 @@ export const TechCarrousel = () => {
         <div className='flex flex-col justify-center items-center gap-2'>
             <h1 className='text-red-500 text-3xl font-semibold'>Tecnologías</h1>
             <p className='text-neutral-500 text-lg'>Stack tecnológico actualizado y en constante evolución</p>
-            <div className='flex flex-wrap justify-center items-center gap-6'>
-                {
-                    technologies.map((tech, index) => (
-                        <motion.div 
-                            key={index} 
-                            className='flex flex-col items-center justify-center gap-2 group'
-                            whileHover={{ scale: 1.1, y: -5 }}
-                            transition={{ duration: 0.2 }}
-                        >
-                            <div className='h-18 w-18 flex items-center justify-center bg-neutral-900 border border-red-900 rounded-lg group-hover:border-red-500 group-hover:border-2 duration-300'>
-                                <tech.icon color={tech.color} size={32}></tech.icon>
-                            </div>
-                            <p className='text-neutral-500 group-hover:text-red-500 duration-300'>{tech.name}</p>
-                        </motion.div>))
-                }
+            <div className='relative py-6 max-w-[70vw] shadow shadow-red-500/10 overflow-x-hidden overflow-hidden gap-6'>
+                <div className='absolute inset-0 z-10 w-full h-60 bg-gradient-to-r from-black via-transparent to-black pointer-events-none'></div>
+                <motion.div 
+                    className='flex space-x-8'
+                    animate={{
+                        x: [-0, -1920]
+                    }}
+                    transition={{
+                        x: {
+                            repeat: Infinity,
+                            repeatType: "loop",
+                            duration: 35,
+                            ease: "linear"
+                        }
+                    }}
+                >
+                    {
+                        [...technologies, ...technologies].map((tech, index) => (
+                            <motion.div 
+                                key={index} 
+                                className='flex flex-col items-center justify-center gap-2 group'
+                                whileHover={{ scale: 1.1, y: -5 }}
+                                transition={{ duration: 0.2 }}
+                            >
+                                <div 
+                                    className="w-18 h-10 absolute z-[-10] rounded-xl border border-black/20 flex items-center justify-center transition-all duration-300"
+                                    style={{ boxShadow: `0 0 20px ${tech.color}50` }}
+                                ></div>
+                                <div className='h-18 w-18 flex items-center justify-center bg-neutral-900 border border-red-900 rounded-lg group-hover:border-red-500 group-hover:border-2 duration-300'>
+                                    <tech.icon color={tech.color} size={32}></tech.icon>
+                                </div>
+                                <p className='text-neutral-500 group-hover:text-red-500 duration-300'>{tech.name}</p>
+                            </motion.div>))
+                    }
+                </motion.div>
             </div>
         </div>
     )
