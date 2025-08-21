@@ -2,7 +2,8 @@ import React from 'react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from '@/components/ui/badge'
 import Image from "next/image"
-import { Zap } from 'lucide-react'
+import { Zap, Github, ExternalLink } from 'lucide-react'
+import { Button } from '@/components/ui/button'
 
 export const Projects = () => {
     return (
@@ -19,11 +20,33 @@ export const Projects = () => {
                     <p className='text-xl text-neutral-500 text-center max-w-3/4'>Proyectos importantes en los que he trabajado, ya sea en un contexto academico como de forma personal</p>
                 </div>
                 <div className='grid w-full px-24 md:grid-cols-2 lg:grid-cols-3 gap-10 z-10'>
-                    <Card className='bg-black border-red-500/30 col-span-2 pt-0 overflow-hidden'>
-                        <Image height={300} width={600} style={{ height: "300px", width: "100%", objectFit: "cover" }} src="./placeholder.svg" alt="Imagen" />
+                    <Card className='group bg-black border-red-500/30 col-span-2 pt-0 overflow-hidden'>
+                        <div className='relative h-[300px] w-full overflow-hidden'>
+                            <Image 
+                                height={300} 
+                                width={600} 
+                                style={{ height: "300px", width: "100%", objectFit: "cover" }} 
+                                className='group-hover:scale-110 transition-transform duration-700'
+                                src="./placeholder.svg" 
+                                alt="Imagen" 
+                            />
+
+                            <div className='absolute inset-0 z-10 bg-red-500/30 opacity-0 group-hover:opacity-100 duration-700'></div>
+
+                            <div className='absolute z-15 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex gap-2 opacity-0 group-hover:opacity-100 duration-300'>
+                                <Button className='hover:cursor-pointer bg-gradient-to-r from-red-600 to-red-800 border border-neutral-400'>
+                                    <ExternalLink />
+                                    Demo
+                                </Button>
+                                <Button className='hover:cursor-pointer hover:bg-white hover:text-black bg-black border border-neutral-400'>
+                                    <Github />
+                                    Github
+                                </Button>
+                            </div>
+                        </div>
                         <CardHeader>
                             <CardTitle className='text-red-500'>Nombre del Proyecto</CardTitle>
-                            <CardDescription>Descripión del Proyecto</CardDescription>
+                            <CardDescription className='group-hover:text-white'>Descripión del Proyecto</CardDescription>
                         </CardHeader>
                         <CardContent className='space-x-2'>
                             <Badge>HTML</Badge>
@@ -31,11 +54,33 @@ export const Projects = () => {
                             <Badge>JavaScript</Badge>
                         </CardContent>
                     </Card>
-                    <Card className='bg-black border-red-500/30 pt-0 overflow-hidden'>
-                        <Image height={300} width={600} style={{ height: "300px", width: "100%", objectFit: "cover" }} src="./placeholder.svg" alt="Imagen" />
+                    <Card className='group bg-black border-red-500/30 pt-0 overflow-hidden'>
+                        <div className='relative h-[300px] w-full overflow-hidden'>
+                            <Image 
+                                height={300} 
+                                width={600} 
+                                style={{ height: "300px", width: "100%", objectFit: "cover" }} 
+                                className='group-hover:scale-110 transition-transform duration-700'
+                                src="./placeholder.svg" 
+                                alt="Imagen" 
+                            />
+
+                            <div className='absolute inset-0 z-10 bg-red-500/30 opacity-0 group-hover:opacity-100 duration-700'></div>
+
+                            <div className='absolute z-15 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex gap-2 opacity-0 group-hover:opacity-100 duration-300'>
+                                <Button className='hover:cursor-pointer bg-gradient-to-r from-red-600 to-red-800 border border-neutral-400'>
+                                    <ExternalLink />
+                                    Demo
+                                </Button>
+                                <Button className='hover:cursor-pointer hover:bg-white hover:text-black bg-black border border-neutral-400'>
+                                    <Github />
+                                    Github
+                                </Button>
+                            </div>
+                        </div>
                         <CardHeader>
                             <CardTitle className='text-red-500'>Nombre del Proyecto</CardTitle>
-                            <CardDescription>Descripión del Proyecto</CardDescription>
+                            <CardDescription className='group-hover:text-white'>Descripión del Proyecto</CardDescription>
                         </CardHeader>
                         <CardContent className='space-x-2'>
                             <Badge>HTML</Badge>
@@ -43,11 +88,33 @@ export const Projects = () => {
                             <Badge>JavaScript</Badge>
                         </CardContent>
                     </Card>
-                    <Card className='bg-black border-red-500/30 pt-0 overflow-hidden'>
-                        <Image height={300} width={600} style={{ height: "300px", width: "100%", objectFit: "cover" }} src="./placeholder.svg" alt="Imagen" />
+                    <Card className='group bg-black border-red-500/30 pt-0 overflow-hidden'>
+                        <div className='relative h-[300px] w-full overflow-hidden'>
+                            <Image 
+                                height={300} 
+                                width={600} 
+                                style={{ height: "300px", width: "100%", objectFit: "cover" }} 
+                                className='group-hover:scale-110 transition-transform duration-700'
+                                src="./placeholder.svg" 
+                                alt="Imagen" 
+                            />
+
+                            <div className='absolute inset-0 z-10 bg-red-500/30 opacity-0 group-hover:opacity-100 duration-700'></div>
+
+                            <div className='absolute z-15 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex gap-2 opacity-0 group-hover:opacity-100 duration-300'>
+                                <Button className='hover:cursor-pointer bg-gradient-to-r from-red-600 to-red-800 border border-neutral-400'>
+                                    <ExternalLink />
+                                    Demo
+                                </Button>
+                                <Button className='hover:cursor-pointer hover:bg-white hover:text-black bg-black border border-neutral-400'>
+                                    <Github />
+                                    Github
+                                </Button>
+                            </div>
+                        </div>
                         <CardHeader>
                             <CardTitle className='text-red-500'>Nombre del Proyecto</CardTitle>
-                            <CardDescription>Descripión del Proyecto</CardDescription>
+                            <CardDescription className='group-hover:text-white'>Descripión del Proyecto</CardDescription>
                         </CardHeader>
                         <CardContent className='space-x-2'>
                             <Badge>HTML</Badge>
@@ -55,11 +122,33 @@ export const Projects = () => {
                             <Badge>JavaScript</Badge>
                         </CardContent>
                     </Card>
-                    <Card className='bg-black border-red-500/30 col-span-2 pt-0 overflow-hidden'>
-                        <Image height={300} width={600} style={{ height: "300px", width: "100%", objectFit: "cover" }} src="./placeholder.svg" alt="Imagen" />
+                    <Card className='group bg-black border-red-500/30 col-span-2 pt-0 overflow-hidden'>
+                        <div className='relative h-[300px] w-full overflow-hidden'>
+                            <Image 
+                                height={300} 
+                                width={600} 
+                                style={{ height: "300px", width: "100%", objectFit: "cover" }} 
+                                className='group-hover:scale-110 transition-transform duration-700'
+                                src="./placeholder.svg" 
+                                alt="Imagen" 
+                            />
+
+                            <div className='absolute inset-0 z-10 bg-red-500/30 opacity-0 group-hover:opacity-100 duration-700'></div>
+
+                            <div className='absolute z-15 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex gap-2 opacity-0 group-hover:opacity-100 duration-300'>
+                                <Button className='hover:cursor-pointer bg-gradient-to-r from-red-600 to-red-800 border border-neutral-400'>
+                                    <ExternalLink />
+                                    Demo
+                                </Button>
+                                <Button className='hover:cursor-pointer hover:bg-white hover:text-black bg-black border border-neutral-400'>
+                                    <Github />
+                                    Github
+                                </Button>
+                            </div>
+                        </div>
                         <CardHeader>
                             <CardTitle className='text-red-500'>Nombre del Proyecto</CardTitle>
-                            <CardDescription>Descripión del Proyecto</CardDescription>
+                            <CardDescription className='group-hover:text-white'>Descripión del Proyecto</CardDescription>
                         </CardHeader>
                         <CardContent className='space-x-2'>
                             <Badge>HTML</Badge>
