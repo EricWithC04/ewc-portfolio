@@ -59,7 +59,7 @@ export const Hero = () => {
     }, [])
 
     return (
-        <section className='px-16 relative w-full min-h-screen bg-black'>
+        <section className='px-16 relative w-full min-h-screen bg-black' id="home">
             <div className="absolute inset-0 bg-gradient-to-br from-black via-black to-[#111]"></div>
             <div className="absolute top-1/8 right-1/4 w-96 h-96 bg-red-600/5 rounded-full blur-3xl"></div>
             <div className="absolute top-2/6 left-1/4 w-64 h-64 bg-red-600/10 rounded-full blur-2xl"></div>

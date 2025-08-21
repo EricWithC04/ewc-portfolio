@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button'
 
 export const Projects = () => {
     return (
-        <section className='w-full bg-black'>
+        <section className='w-full bg-black' id="projects">
             <div className="relative flex flex-col items-center gap-6 py-12">
                 <div className='absolute inset-0 bg-gradient-to-b from-neutral-800/20 to-neutral-900/20 z-4'></div>
                 <div className='absolute bg-red-500/10 blur-3xl rounded-full p-48 z-5'></div>

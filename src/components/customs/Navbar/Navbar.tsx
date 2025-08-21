@@ -19,10 +19,10 @@ export const Navbar = () => {
             <h1 className="text-2xl text-red-500 font-semibold">{"<EWC/>"}</h1>
             <div className="flex items-center gap-6">
                 <ul className="flex gap-6 [&>li>a]:font-semibold [&>li>a]:hover:text-red-500 [&>li>a]:hover:text-lg [&>li>a]:duration-300">
-                    <li><a href="#">Inicio</a></li>
-                    <li><a href="#">Proyectos</a></li>
+                    <li><a href="#home">Inicio</a></li>
+                    <li><a href="#projects">Proyectos</a></li>
                     <li><a href="#">Servicios</a></li>
-                    <li><a href="#">Sobre Mí</a></li>
+                    <li><a href="#about">Sobre Mí</a></li>
                     <li><a href="#">Contacto</a></li>
                 </ul>
                 <div className="p-2 rounded-lg hover:bg-red-500/20 hover:cursor-pointer">
