@@ -9,7 +9,7 @@ export const Projects = () => {
     return (
         <section className='w-full bg-black'>
             <div className="relative flex flex-col items-center gap-6 py-12">
-                <div className='absolute inset-0 bg-gradient-to-b from-neutral-800/10 to-neutral-900/10 z-4'></div>
+                <div className='absolute inset-0 bg-gradient-to-b from-neutral-800/20 to-neutral-900/20 z-4'></div>
                 <div className='absolute bg-red-500/10 blur-3xl rounded-full p-48 z-5'></div>
                 <div className='flex flex-col items-center gap-6 my-18 z-10'>
                     <div className='inline-flex items-center space-x-2 bg-red-500/10 text-red-500 border border-red-500 px-4 py-2 rounded-full shadow w-fit'>
@@ -156,6 +156,17 @@ export const Projects = () => {
                             <Badge>JavaScript</Badge>
                         </CardContent>
                     </Card>
+                </div>
+                <div className='flex justify-center py-12'>
+                    <Button className='z-10 group p-5! bg-gradient-to-r from-red-600 to-red-800 hover:cursor-pointer'>
+                        <Github 
+                            className='group-hover:rotate-30 transition duration-300'
+                        />
+                        Ver Todos en Github
+                        <ExternalLink 
+                            className='group-hover:translate-x-1 group-hover:-translate-y-1 transition duration-300'
+                        />
+                    </Button>
                 </div>
             </div>
         </section>
