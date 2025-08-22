@@ -1,6 +1,7 @@
 import React from 'react'
 import { Badge } from '@/components/ui/badge' 
 import Image from "next/image"
+import { Card, CardContent } from '@/components/ui/card'
 
 export const About = () => {
     return (
@@ -35,6 +36,32 @@ export const About = () => {
                         alt="Imagen"
                     />
                 </div>
+            </div>
+            <div className='w-full px-24 grid lg:grid-cols-4 gap-8 z-10 [&>div]:bg-neutral-900/30'>
+                    <Card className='text-center py-12 border-1 border-neutral-800'>
+                        <CardContent className='space-y-2'>
+                            <h1 className='text-3xl font-semibold text-red-500'>50+</h1>
+                            <span className='text-md text-neutral-400'>Proyectos completados</span>
+                        </CardContent>
+                    </Card>
+                    <Card className='text-center py-12 border-1 border-neutral-800'>
+                        <CardContent className='space-y-2'>
+                            <h1 className='text-3xl font-semibold text-red-500'>50+</h1>
+                            <span className='text-md text-neutral-400'>Proyectos completados</span>
+                        </CardContent>
+                    </Card>
+                    <Card className='text-center py-12 border-1 border-neutral-800'>
+                        <CardContent className='space-y-2'>
+                            <h1 className='text-3xl font-semibold text-red-500'>50+</h1>
+                            <span className='text-md text-neutral-400'>Proyectos completados</span>
+                        </CardContent>
+                    </Card>
+                    <Card className='text-center py-12 border-1 border-neutral-800'>
+                        <CardContent className='space-y-2'>
+                            <h1 className='text-3xl font-semibold text-red-500'>50+</h1>
+                            <span className='text-md text-neutral-400'>Proyectos completados</span>
+                        </CardContent>
+                    </Card>
             </div>
         </section>
     )
