@@ -28,31 +28,44 @@ export const About = () => {
         {
             title: 'Frontend',
             items: [
-                'HTML',
+                'HTML y CSS',
+                'JavaScript',
+                'TypeScript',
+                'React',
+                'Tailwind CSS',
+                'Next',
             ]
         },
         {
             title: 'Backend',
             items: [
-                'HTML',
+                'Node.js',
+                'TypeScript',
+                'Express',
+                'Sequelize',
+                'MySQL y PostgreSQL',
+                'MongoDB',
             ]
         },
         {
             title: 'Mobile',
             items: [
-                'HTML',
+                'Flutter',
             ]
         },
         {
             title: 'Game Dev',
             items: [
-                'HTML',
+                'Godot Engine',
             ]
         },
         {
             title: 'Tools',
             items: [
-                'HTML',
+                'Git y Github',
+                'Docker',
+                'Jira',
+                'IA',
             ]
         },
     ]
@@ -107,7 +120,7 @@ export const About = () => {
                         <Card key={index} className='pt-6 pb-12 border-1 border-neutral-800 bg-neutral-900/30'>
                             <CardContent className='space-y-2'>
                                 <h1 className='text-xl font-semibold text-red-500 mb-4'>{tool.title}</h1>
-                                <div>
+                                <div className='flex flex-wrap gap-2'>
                                     {tool.items.map((item, index) => (
                                         <Badge key={index} className='border-1 border-neutral-800'>{item}</Badge>
                                     ))}
