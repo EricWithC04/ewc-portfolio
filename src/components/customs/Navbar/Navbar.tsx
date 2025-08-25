@@ -23,7 +23,7 @@ export const Navbar = () => {
                     <li><a href="#projects">Proyectos</a></li>
                     <li><a href="#">Servicios</a></li>
                     <li><a href="#about">Sobre Mí</a></li>
-                    <li><a href="#">Contacto</a></li>
+                    <li><a href="#contact">Contacto</a></li>
                 </ul>
                 <div className="p-2 rounded-lg hover:bg-red-500/20 hover:cursor-pointer">
                     <Moon color={"#f00"}></Moon>
