@@ -5,13 +5,23 @@ import { Contact } from "@/sections/Contact/Contact";
 import { Hero } from "@/sections/Hero/Hero";
 import { Projects } from "@/sections/Projects/Projects";
 import { useState } from "react";
+import { motion } from "framer-motion";
 import { Animations } from "@/interfaces/animations";
+
+import Academic from "@/pages/academic/Academic"
 
 export default function Home() {
 
+    const [currentPage, setCurrentPage] = useState<"main" | "academic">("main");
+
     const [isExiting, setIsExiting] = useState(false);
 
-    const handleExiting = () => setIsExiting(true);
+    const handleExiting = () => {
+        setIsExiting(true);
+        setTimeout(() => {
+            setCurrentPage("academic")
+        }, 1500) 
+    };
 
     const exitingAnimations: Animations = {
         down: { initial: { opacity: 1, y: 0 }, animate: { opacity: 0, y: 50 } },
@@ -20,17 +30,34 @@ export default function Home() {
     }
 
     return (
-        <div className="">
-            <Navbar 
-                handleExiting={handleExiting}
-            ></Navbar>
-            <Hero
-                isExiting={isExiting}
-                exitingAnimations={exitingAnimations}
-            ></Hero>
-            <Projects></Projects>
-            <About></About>
-            <Contact></Contact>
-        </div>
+        <motion.div 
+            initial={currentPage === "main" ? { backgroundColor: "#000" } : { backgroundColor: "#f5f5f5" }}
+            animate={currentPage === "academic" ? { backgroundColor: "#f5f5f5" } : { backgroundColor: "#000" }}
+            transition={{duration: 0.8, delay: 1}}
+            className="min-h-screen"
+        >
+            {
+                currentPage === "main" ? (
+                    <>
+                        <Navbar 
+                            isExiting={isExiting}
+                            handleExiting={handleExiting}
+                        ></Navbar>
+                        <Hero
+                            isExiting={isExiting}
+                            exitingAnimations={exitingAnimations}
+                        ></Hero>
+                        <Projects></Projects>
+                        <About></About>
+                        <Contact></Contact>
+                    </>
+                ) : (
+                    <>
+                        <Academic></Academic>
+                    </>
+                )
+            }
+            
+        </motion.div>
     );
 }

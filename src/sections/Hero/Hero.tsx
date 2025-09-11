@@ -45,11 +45,14 @@ export const Hero = ({ isExiting, exitingAnimations }: { isExiting: boolean, exi
 
     useEffect(() => {
         let index = 0;
-        const interval = setInterval(() => {
-            setDisplayedText(fullText.slice(0, index));
-            index++;
-            if (index > fullText.length) clearInterval(interval);
-        }, 40);
+        let interval: any;
+        // setTimeout(() => {
+            interval = setInterval(() => {
+                setDisplayedText(fullText.slice(0, index));
+                index++;
+                if (index > fullText.length) clearInterval(interval);
+            }, 40);
+        // }, 2000)
 
         return () => clearInterval(interval);
     }, [])
@@ -64,13 +67,24 @@ export const Hero = ({ isExiting, exitingAnimations }: { isExiting: boolean, exi
 
     return (
         <section className='px-16 relative w-full min-h-screen bg-black' id="home">
-            <div className="absolute inset-0 bg-gradient-to-br from-black via-black to-[#111]"></div>
-            <div className="absolute top-1/8 right-1/4 w-96 h-96 bg-red-600/5 rounded-full blur-3xl"></div>
-            <div className="absolute top-2/6 left-1/4 w-64 h-64 bg-red-600/10 rounded-full blur-2xl"></div>
+            <motion.div
+                animate={ isExiting ? { opacity: 0 } : {} }
+                transition={ { duration: 0.8, delay: 0.6 } }
+                className="absolute inset-0 bg-gradient-to-br from-black via-black to-[#111]"
+            ></motion.div>
+            <motion.div
+                animate={ isExiting ? { opacity: 0 } : {} }
+                transition={ { duration: 0.8, delay: 0.6 } }
+                className="absolute top-1/8 right-1/4 w-96 h-96 bg-red-600/5 rounded-full blur-3xl"
+            ></motion.div>
+            <motion.div
+                animate={ isExiting ? { opacity: 0 } : {} }
+                transition={ { duration: 0.8, delay: 0.6 } }
+                className="absolute top-2/6 left-1/4 w-64 h-64 bg-red-600/10 rounded-full blur-2xl"
+            ></motion.div>
 
             <div className='relative z-10 pt-32 pb-16'>
                 <div className="h-[100%] grid lg:grid-cols-2">
-                    <AnimatePresence mode="wait">
                     <motion.div
                         key={pathname}
                         initial={isExiting ? exitingAnimations.left.initial : { opacity: 0, x: -50 }}
@@ -96,7 +110,6 @@ export const Hero = ({ isExiting, exitingAnimations }: { isExiting: boolean, exi
                             </div>
                         </div>
                     </motion.div>
-                    </AnimatePresence>
                     <motion.div
                         initial={isExiting ? exitingAnimations.right.initial :{ opacity: 0, x: 50 }}
                         animate={isExiting ? exitingAnimations.right.animate :{ opacity: 1, x: 0 }}
@@ -157,7 +170,11 @@ export const Hero = ({ isExiting, exitingAnimations }: { isExiting: boolean, exi
                         </div>
                     </motion.div>
                 </div>
-                <motion.div className='flex items-center justify-center mt-60' initial={ { opacity: 1 } }>
+                <motion.div 
+                    initial={ isExiting ? exitingAnimations.down.initial : { opacity: 1 } }
+                    animate={ isExiting ? exitingAnimations.down.animate : {} }
+                    transition={ { duration: 0.8, delay: 0.3 } }
+                    className='flex items-center justify-center mt-60'>
                     <TechCarrousel></TechCarrousel>
                 </motion.div>
             </div>
