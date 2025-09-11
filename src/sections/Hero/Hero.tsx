@@ -2,11 +2,15 @@
 import React, { useEffect, useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Download, Play, ArrowRight } from 'lucide-react'
-import { motion } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import Image from "next/image"
+import { usePathname } from 'next/navigation'
 import { TechCarrousel } from '@/components/customs/TechCarrousel/TechCarrousel'
+import { Animations } from '@/interfaces/animations'
 
-export const Hero = () => {
+export const Hero = ({ isExiting, exitingAnimations }: { isExiting: boolean, exitingAnimations: Animations }) => {
+
+    const pathname = usePathname();
 
     const [displayedText, setDisplayedText] = useState<string>("")
     const fullText = "Desarrollador de Software Fullstack y Freelancer"
@@ -66,10 +70,13 @@ export const Hero = () => {
 
             <div className='relative z-10 pt-32 pb-16'>
                 <div className="h-[100%] grid lg:grid-cols-2">
+                    <AnimatePresence mode="wait">
                     <motion.div
-                        initial={{ opacity: 0, x: -50 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.8 }}
+                        key={pathname}
+                        initial={isExiting ? exitingAnimations.left.initial : { opacity: 0, x: -50 }}
+                        animate={isExiting ? exitingAnimations.left.animate : { opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: -50 }}
+                        transition={{ duration: 0.8, delay: 0.2 }}
                     >
                         <div className='flex flex-col gap-8 text-white'>
                             <span className='bg-red-500/10 text-red-500 border border-red-500 text-md font-semibold px-4 py-2 rounded-full shadow w-fit'>¡Disponible para proyectos!</span>
@@ -89,9 +96,10 @@ export const Hero = () => {
                             </div>
                         </div>
                     </motion.div>
+                    </AnimatePresence>
                     <motion.div
-                        initial={{ opacity: 0, x: 50 }}
-                        animate={{ opacity: 1, x: 0 }}
+                        initial={isExiting ? exitingAnimations.right.initial :{ opacity: 0, x: 50 }}
+                        animate={isExiting ? exitingAnimations.right.animate :{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8, delay: 0.3 }}
                     >
                         <div className='relative h-full w-full flex items-center justify-center pt-16'>

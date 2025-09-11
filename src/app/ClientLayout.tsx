@@ -12,9 +12,9 @@ const ClientLayout = ({ children }: { children: React.ReactNode }) => {
                 key={pathname}
                 initial={{ backgroundColor: "#000000" }}
                 animate={{ backgroundColor: "#f5f5f5" }}
-                // exit={{ backgroundColor: "#000" }}
-                transition={{ duration: 1.2 }}
-                className="min-h-screen"
+                // exit={{ backgroundColor: "#f5f5f5" }}
+                transition={{ duration: 1.2, delay: 1.5 }}
+                className="min-h-screen w-full bg-black"
             >
                 {children}
             </motion.div>

@@ -1,10 +1,12 @@
 "use client"
 import { useEffect, useState } from "react"
+import { useRouter } from "next/navigation"
 import { Moon } from "lucide-react"
-import Link from "next/link"
+// import Link from "next/link"
 
-export const Navbar = () => {
+export const Navbar = ({ handleExiting }: { handleExiting: () => void }) => {
 
+    const router = useRouter()
     const [scroll, setScroll] = useState<boolean>(false)
 
     useEffect(() => {
@@ -26,11 +28,16 @@ export const Navbar = () => {
                     <li><a href="#about">Sobre Mí</a></li>
                     <li><a href="#contact">Contacto</a></li>
                 </ul>
-                <Link href="/academic">
-                    <div className="p-2 rounded-lg hover:bg-red-500/20 hover:cursor-pointer">
+                {/* <Link href="/academic"> */}
+                    <div className="p-2 rounded-lg hover:bg-red-500/20 hover:cursor-pointer" onClick={() => {
+                        handleExiting()
+                        setTimeout(() => {
+                            router.push("/academic")
+                        }, 1000)
+                    }}>
                         <Moon color={"#f00"}></Moon>
                     </div>
-                </Link>
+                {/* </Link> */}
             </div>
         </nav>
     )
