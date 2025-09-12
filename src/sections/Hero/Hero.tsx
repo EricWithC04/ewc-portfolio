@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Download, Play, ArrowRight } from 'lucide-react'
-import { AnimatePresence, motion } from 'framer-motion'
+import { motion } from 'framer-motion'
 import Image from "next/image"
 import { usePathname } from 'next/navigation'
 import { TechCarrousel } from '@/components/customs/TechCarrousel/TechCarrousel'
@@ -18,10 +18,10 @@ export const Hero = ({ isExiting, exitingAnimations }: { isExiting: boolean, exi
     const [currentImage, setCurrentImage] = useState<number>(0)
 
     const images = [
-        "/images/hero-img-1.jpg",
-        "/images/hero-img-2.jpg",
-        "/images/hero-img-3.jpg",
-        "/images/hero-img-4.jpg",
+        "/images/hero-img-1.avif",
+        "/images/hero-img-2.avif",
+        "/images/hero-img-3.avif",
+        "/images/hero-img-4.avif",
     ]
 
     const imagesTexts = [
@@ -45,14 +45,11 @@ export const Hero = ({ isExiting, exitingAnimations }: { isExiting: boolean, exi
 
     useEffect(() => {
         let index = 0;
-        let interval: any;
-        // setTimeout(() => {
-            interval = setInterval(() => {
+        const interval = setInterval(() => {
                 setDisplayedText(fullText.slice(0, index));
                 index++;
                 if (index > fullText.length) clearInterval(interval);
             }, 40);
-        // }, 2000)
 
         return () => clearInterval(interval);
     }, [])
@@ -72,24 +69,15 @@ export const Hero = ({ isExiting, exitingAnimations }: { isExiting: boolean, exi
                 transition={ { duration: 0.8, delay: 0.6 } }
                 className="absolute inset-0 bg-gradient-to-br from-black via-black to-[#111]"
             ></motion.div>
-            <motion.div
-                animate={ isExiting ? { opacity: 0 } : {} }
-                transition={ { duration: 0.8, delay: 0.6 } }
-                className="absolute top-1/8 right-1/4 w-96 h-96 bg-red-600/5 rounded-full blur-3xl"
-            ></motion.div>
-            <motion.div
-                animate={ isExiting ? { opacity: 0 } : {} }
-                transition={ { duration: 0.8, delay: 0.6 } }
-                className="absolute top-2/6 left-1/4 w-64 h-64 bg-red-600/10 rounded-full blur-2xl"
-            ></motion.div>
+            <div className="absolute top-1/8 right-1/4 w-96 h-96 bg-red-600/5 rounded-full blur-3xl"></div>
+            <div className="absolute top-2/6 left-1/4 w-64 h-64 bg-red-600/10 rounded-full blur-2xl"></div>
 
             <div className='relative z-10 pt-32 pb-16'>
                 <div className="h-[100%] grid lg:grid-cols-2">
                     <motion.div
                         key={pathname}
-                        initial={isExiting ? exitingAnimations.left.initial : { opacity: 0, x: -50 }}
-                        animate={isExiting ? exitingAnimations.left.animate : { opacity: 1, x: 0 }}
-                        exit={{ opacity: 0, x: -50 }}
+                        initial={{ opacity: 0, x: -50 }}
+                        animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8, delay: 0.2 }}
                     >
                         <div className='flex flex-col gap-8 text-white'>
@@ -111,8 +99,8 @@ export const Hero = ({ isExiting, exitingAnimations }: { isExiting: boolean, exi
                         </div>
                     </motion.div>
                     <motion.div
-                        initial={isExiting ? exitingAnimations.right.initial :{ opacity: 0, x: 50 }}
-                        animate={isExiting ? exitingAnimations.right.animate :{ opacity: 1, x: 0 }}
+                        initial={{ opacity: 0, x: 50 }}
+                        animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8, delay: 0.3 }}
                     >
                         <div className='relative h-full w-full flex items-center justify-center pt-16'>
@@ -157,7 +145,7 @@ export const Hero = ({ isExiting, exitingAnimations }: { isExiting: boolean, exi
                                 {imagesTexts.map((image, index) => (
                                     <motion.div
                                         key={`i${index}`}
-                                        className='absolute inset-0 w-full'
+                                        className='absolute inset-0 w-full z-20'
                                         initial={{ opacity: 0, x: -50 }}
                                         animate={{ opacity: index === currentImage ? 1 : 0, x: index === currentImage ? 0 : -50 }}
                                         transition={{ duration: 1, ease: "easeInOut" }}

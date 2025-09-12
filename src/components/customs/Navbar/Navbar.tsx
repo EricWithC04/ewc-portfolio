@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
 import { Moon } from "lucide-react"
 
-export const Navbar = ({ isExiting, handleExiting }: { isExiting: boolean, handleExiting: () => void }) => {
+export const Navbar = ({ isExiting }: { isExiting: boolean }) => {
 
     const [scroll, setScroll] = useState<boolean>(false)
 
@@ -30,9 +30,7 @@ export const Navbar = ({ isExiting, handleExiting }: { isExiting: boolean, handl
                     <li><a href="#about">Sobre Mí</a></li>
                     <li><a href="#contact">Contacto</a></li>
                 </ul>
-                    <div className="p-2 rounded-lg hover:bg-red-500/20 hover:cursor-pointer" onClick={() => {
-                        handleExiting()
-                    }}>
+                    <div className="p-2 rounded-lg hover:bg-red-500/20 hover:cursor-pointer">
                         <Moon color={"#f00"}></Moon>
                     </div>
             </div>

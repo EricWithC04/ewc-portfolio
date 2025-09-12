@@ -33,7 +33,7 @@ export default function Home() {
         <motion.div 
             initial={currentPage === "main" ? { backgroundColor: "#000" } : { backgroundColor: "#f5f5f5" }}
             animate={currentPage === "academic" ? { backgroundColor: "#f5f5f5" } : { backgroundColor: "#000" }}
-            transition={{duration: 0.8, delay: 1}}
+            transition={{duration: 0.8, delay: 0.5}}
             className="min-h-screen"
         >
             {
@@ -41,13 +41,16 @@ export default function Home() {
                     <>
                         <Navbar 
                             isExiting={isExiting}
-                            handleExiting={handleExiting}
                         ></Navbar>
                         <Hero
                             isExiting={isExiting}
                             exitingAnimations={exitingAnimations}
                         ></Hero>
-                        <Projects></Projects>
+                        <Projects
+                            isExiting={isExiting}
+                            exitingAnimations={exitingAnimations}
+                            handleExiting={handleExiting}
+                        ></Projects>
                         <About></About>
                         <Contact></Contact>
                     </>
