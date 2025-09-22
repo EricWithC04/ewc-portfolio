@@ -59,6 +59,7 @@ export const Projects = ({ isExiting, exitingAnimations, handleExiting }: { isEx
                                 <Image 
                                     height={300} 
                                     width={600} 
+                                    loading="lazy"
                                     style={{ height: "300px", width: "100%", objectFit: "cover" }} 
                                     className='group-hover:scale-110 transition-transform duration-700'
                                     src="./placeholder.svg" 
@@ -94,6 +95,7 @@ export const Projects = ({ isExiting, exitingAnimations, handleExiting }: { isEx
                                 <Image 
                                     height={300} 
                                     width={600} 
+                                    loading="lazy"
                                     style={{ height: "300px", width: "100%", objectFit: "cover" }} 
                                     className='group-hover:scale-110 transition-transform duration-700'
                                     src="./placeholder.svg" 
@@ -130,6 +132,7 @@ export const Projects = ({ isExiting, exitingAnimations, handleExiting }: { isEx
                                 <Image 
                                     height={300} 
                                     width={600} 
+                                    loading="lazy"
                                     style={{ height: "300px", width: "100%", objectFit: "cover" }} 
                                     className='group-hover:scale-110 transition-transform duration-700'
                                     src="./placeholder.svg" 
@@ -166,6 +169,7 @@ export const Projects = ({ isExiting, exitingAnimations, handleExiting }: { isEx
                                 <Image 
                                     height={300} 
                                     width={600} 
+                                    loading="lazy"
                                     style={{ height: "300px", width: "100%", objectFit: "cover" }} 
                                     className='group-hover:scale-110 transition-transform duration-700'
                                     src="./placeholder.svg" 

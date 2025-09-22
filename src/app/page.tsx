@@ -17,9 +17,9 @@ export default function Home() {
     const [isExiting, setIsExiting] = useState(false);
 
     const handleExiting = () => {
-        setIsExiting(true);
+        setIsExiting(!isExiting);
         setTimeout(() => {
-            setCurrentPage("academic")
+            setCurrentPage(currentPage === "academic" ? "main" : "academic");
         }, 1500) 
     };
 
@@ -56,7 +56,10 @@ export default function Home() {
                     </>
                 ) : (
                     <>
-                        <Academic></Academic>
+                        <Academic
+                            isExiting={isExiting}
+                            handleExiting={handleExiting}
+                        ></Academic>
                     </>
                 )
             }

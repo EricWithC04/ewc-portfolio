@@ -18,10 +18,10 @@ export const Hero = ({ isExiting, exitingAnimations }: { isExiting: boolean, exi
     const [currentImage, setCurrentImage] = useState<number>(0)
 
     const images = [
-        "/images/hero-img-1.avif",
-        "/images/hero-img-2.avif",
-        "/images/hero-img-3.avif",
-        "/images/hero-img-4.avif",
+        "/images/hero-img-1.webp",
+        "/images/hero-img-2.webp",
+        "/images/hero-img-3.webp",
+        "/images/hero-img-4.webp",
     ]
 
     const imagesTexts = [
