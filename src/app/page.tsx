@@ -19,6 +19,7 @@ export default function Home() {
     const handleExiting = () => {
         setIsExiting(!isExiting);
         setTimeout(() => {
+            window.scrollTo(0, 0);
             setCurrentPage(currentPage === "academic" ? "main" : "academic");
         }, 1500) 
     };
@@ -31,9 +32,9 @@ export default function Home() {
 
     return (
         <motion.div 
-            initial={currentPage === "main" ? { backgroundColor: "#000" } : { backgroundColor: "#f5f5f5" }}
-            animate={currentPage === "academic" ? { backgroundColor: "#f5f5f5" } : { backgroundColor: "#000" }}
-            transition={{duration: 0.8, delay: 0.5}}
+            initial={currentPage === "main" ? { backgroundColor: "#f5f5f5" } : { backgroundColor: "#000" }}
+            animate={currentPage === "main" ? { backgroundColor: "#000" } : { backgroundColor: "#f5f5f5" }}
+            transition={{duration: 0.8, ease: "easeInOut"}}
             className="min-h-screen"
         >
             {
@@ -58,6 +59,7 @@ export default function Home() {
                     <>
                         <Academic
                             isExiting={isExiting}
+                            exitingAnimations={exitingAnimations}
                             handleExiting={handleExiting}
                         ></Academic>
                     </>

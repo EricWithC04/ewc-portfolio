@@ -2,13 +2,14 @@ import React from 'react'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge' 
 import { motion } from 'framer-motion'
+import { Animations } from '@/interfaces/animations'
 
-export const AcademicIntro = ({ isExiting }: { isExiting: boolean }) => {
+export const AcademicIntro = ({ isExiting }: { isExiting: boolean, exitingAnimations: Animations }) => {
     return (
         <motion.div 
-            initial={{ opacity: 0 }} 
-            animate={{ opacity: 1 }} 
-            transition={{ duration: 0.8, delay: 0.2 }} 
+            initial={{ opacity: 0, y: 30 }} 
+            animate={{ opacity: 1, y: 0 }} 
+            transition={{ duration: 0.8, delay: 1 }} 
             className='flex flex-col items-center gap-6 py-12'
         >
             <Card className='bg-red-300/10 border-1 border-red-500/40 mx-16'>
