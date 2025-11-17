@@ -4,17 +4,21 @@ import { About } from "@/sections/About/About";
 import { Contact } from "@/sections/Contact/Contact";
 import { Hero } from "@/sections/Hero/Hero";
 import { Projects } from "@/sections/Projects/Projects";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Animations } from "@/interfaces/animations";
 
-import Academic from "@/pages/academic/Academic"
+import dynamic from 'next/dynamic';
+
+// import Academic from "@/pages/academic/Academic"
+const Academic = dynamic(() => import("@/pages/academic/Academic"), { ssr: false })
 
 export default function Home() {
 
     const [currentPage, setCurrentPage] = useState<"main" | "academic">("main");
 
     const [isExiting, setIsExiting] = useState(false);
+    const [isStarting, setIsStarting] = useState(true);
 
     const handleExiting = () => {
         setIsExiting(!isExiting);
@@ -23,6 +27,12 @@ export default function Home() {
             setCurrentPage(currentPage === "academic" ? "main" : "academic");
         }, 1500) 
     };
+
+    useEffect(() => {
+        setTimeout(() => {
+            setIsStarting(false)
+        }, 1500)
+    }, [])
 
     const exitingAnimations: Animations = {
         down: { initial: { opacity: 1, y: 0 }, animate: { opacity: 0, y: 50 } },
@@ -42,9 +52,11 @@ export default function Home() {
                     <>
                         <Navbar 
                             isExiting={isExiting}
+                            isStarting={isStarting}
                         ></Navbar>
                         <Hero
                             isExiting={isExiting}
+                            isStarting={isStarting}
                             exitingAnimations={exitingAnimations}
                         ></Hero>
                         <Projects

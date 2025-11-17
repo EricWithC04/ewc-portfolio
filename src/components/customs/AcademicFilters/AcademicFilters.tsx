@@ -8,7 +8,7 @@ interface Option {
     selected: boolean
 }
 
-export const AcademicFilters = () => {
+export const AcademicFilters = ({ isExiting }: { isExiting: boolean }) => {
 
     const [typeProjects, setTypeProjects] = useState<Array<Option>>([
         {
@@ -100,15 +100,15 @@ export const AcademicFilters = () => {
 
     return (
         <motion.div
-            initial={{ opacity: 0, y: 30 }} 
-            animate={{ opacity: 1, y: 0 }} 
-            transition={{ duration: 0.8, delay: 1.2 }} 
+            initial={isExiting ? { opacity: 0, y: 30 } : { opacity: 1, y: 0 }} 
+            animate={isExiting ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }} 
+            transition={{ duration: 0.8, delay: isExiting ? 1.2 : 0.5 }}
         >
             <Card className='mx-16'>
                 <CardContent className='flex'>
                     <div className="flex flex-col flex-1 gap-2">
                         <h4 className='font-semibold text-neutral-500'>TIPO DE PROYECTO</h4>
-                        <div className='max-w-3/4 space-x-2 space-y-1'>
+                        <div className='max-w-3/4 space-x-2 space-y-1 z-10'>
                             {typeProjects.map((type, index) => (
                                 <Badge 
                                     key={index}
@@ -120,7 +120,7 @@ export const AcademicFilters = () => {
                     </div>
                     <div className='flex flex-col flex-2 gap-2'>
                         <h4 className='font-semibold text-neutral-500'>TECNOLOGÍAS</h4>
-                        <div className='max-w-3/4 space-x-2 space-y-1'>
+                        <div className='max-w-3/4 space-x-2 space-y-1 z-10'>
                             {technologies.map((tech, index) => (
                                 <Badge 
                                     key={index}

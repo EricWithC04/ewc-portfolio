@@ -16,8 +16,12 @@ const Academic = ({ isExiting, exitingAnimations, handleExiting }: { isExiting: 
                 isExiting={isExiting}
                 exitingAnimations={exitingAnimations}
             ></AcademicIntro>
-            <AcademicFilters></AcademicFilters>
-            <AcademicProjects></AcademicProjects>
+            <AcademicFilters
+                isExiting={isExiting}
+            ></AcademicFilters>
+            <AcademicProjects
+                isExiting={isExiting}
+            ></AcademicProjects>
         </div>
     )
 }
