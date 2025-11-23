@@ -9,8 +9,8 @@ export const About = () => {
 
     const cardStats = [
         {
-            title: '50+',
-            desc: 'Proyectos completados'
+            title: '4+',
+            desc: 'Años como programador'
         },
         {
             title: '50+',
@@ -56,12 +56,6 @@ export const About = () => {
             ]
         },
         {
-            title: 'Game Dev',
-            items: [
-                'Godot Engine',
-            ]
-        },
-        {
             title: 'Tools',
             items: [
                 'Git y Github',
@@ -85,7 +79,7 @@ export const About = () => {
             <div className='absolute bg-red-500/30 blur-3xl rounded-full p-24 bottom-20 left-3/6 z-4'></div>
             <motion.div className='text-center z-10' {...appearanceAnimation}>
                 <h1 className='text-4xl text-red-500 font-bold mb-4'>Sobre Mí</h1>
-                <p className='text-xl text-neutral-400'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ducimus, earum.</p>
+                <p className='text-xl text-neutral-400'>Conoce más sobre mi perfil profesional y experiencia en el desarrollo de software</p>
             </motion.div>
             <div className='grid sm:grid-cols-1 lg:grid-cols-2 px-24 gap-12 z-10'>
                 <motion.div 
@@ -95,13 +89,14 @@ export const About = () => {
                     transition={{ duration: 0.8 }}
                 >
                     <h1 className='text-2xl text-red-500 font-bold'>¡Hola! Soy Eric Mercado</h1>
-                    <p className='text-lg text-neutral-400'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reiciendis ipsam placeat optio molestias autem veniam, tempore hic expedita dolores amet iusto vitae sint tenetur repudiandae perferendis pariatur minima. Voluptates, laborum!</p>
-                    <p className='text-lg text-neutral-400'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reiciendis ipsam placeat optio molestias autem veniam, tempore hic expedita dolores amet iusto vitae sint tenetur repudiandae perferendis pariatur minima. Voluptates, laborum!</p>
-                    <p className='text-lg text-neutral-400'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reiciendis ipsam placeat optio molestias autem veniam, tempore hic expedita dolores amet iusto vitae sint tenetur repudiandae perferendis pariatur minima. Voluptates, laborum!</p>
+                    <p className='text-lg text-neutral-400'>Desarrollador Fullstack, con experiencia en el desarrollo de aplicaciones web y un poco de desarrollo mobile. Programo desde hace más de 4 años y mi objetivo es seguir aprendiendo y creciendo como profesional.</p>
+                    <p className='text-lg text-neutral-400'>Me gradué en la carrera de Tecnicatura Superior en Desarrollo de Software Multiplataforma del Instituto Politécnico Formosa en el año 2024. Aunque ya tenía conocimientos previos en programación, fue durante la carrera cuando pude aplicar mis conocimientos de forma práctica mediante proyectos y trabajos reales.</p>
+                    <p className='text-lg text-neutral-400'>Me gusta mantenerme en constante práctica, tanto en lo técnico como en lo personal. Siempre estoy explorando nuevas tecnologías y buscando maneras de mejorar, adaptarme y aportar más valor en cada proyecto.</p>
                     <div className='flex gap-4'>
                         <Badge className='p-1.5!'>Desarrollo Web</Badge>
-                        <Badge className='p-1.5!'>Aplicaiones Móviles</Badge>
-                        <Badge className='p-1.5!'>Videojuegos</Badge>
+                        <Badge className='p-1.5!'>Frontend</Badge>
+                        <Badge className='p-1.5!'>Backend</Badge>
+                        <Badge className='p-1.5!'>Aplicaciones Móviles</Badge>
                         <Badge className='p-1.5!'>Inteligencia Artificial</Badge>
                     </div>
                 </motion.div>

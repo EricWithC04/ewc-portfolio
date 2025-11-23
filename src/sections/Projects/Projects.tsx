@@ -49,7 +49,7 @@ export const Projects = ({ isExiting, exitingAnimations, handleExiting }: { isEx
                         <Zap className="w-4 h-4" />
                         <span className='text-md font-semibold'>Proyectos Destacados</span>
                     </div>
-                    <h1 className='text-6xl text-white font-bold'>Portfolio</h1>
+                    <h1 className='text-6xl text-white font-bold'>Proyectos</h1>
                     <p className='text-xl text-neutral-500 text-center max-w-3/4'>Proyectos importantes en los que he trabajado, ya sea en un contexto academico como de forma personal</p>
                 </motion.div>
                 <div className='grid w-full px-24 md:grid-cols-2 lg:grid-cols-3 gap-10 z-10'>
@@ -62,7 +62,7 @@ export const Projects = ({ isExiting, exitingAnimations, handleExiting }: { isEx
                                     loading="lazy"
                                     style={{ height: "300px", width: "100%", objectFit: "cover" }} 
                                     className='group-hover:scale-110 transition-transform duration-700'
-                                    src="./placeholder.svg" 
+                                    src="/images/academic-projects.webp" 
                                     alt="Imagen" 
                                 />
 
@@ -79,13 +79,20 @@ export const Projects = ({ isExiting, exitingAnimations, handleExiting }: { isEx
                                 </div>
                             </div>
                             <CardHeader>
-                                <CardTitle className='text-red-500'>Nombre del Proyecto</CardTitle>
-                                <CardDescription className='group-hover:text-white'>Descripión del Proyecto</CardDescription>
+                                <CardTitle className='text-red-500'>Proyectos académicos</CardTitle>
+                                <CardDescription className='group-hover:text-white'>Conjunto de proyectos desarrollados durante mi carrera terciaria</CardDescription>
                             </CardHeader>
                             <CardContent className='space-x-2'>
                                 <Badge>HTML</Badge>
                                 <Badge>CSS</Badge>
                                 <Badge>JavaScript</Badge>
+                                <Badge>TypeScript</Badge>
+                                <Badge>React</Badge>
+                                <Badge>Node</Badge>
+                                <Badge>Express</Badge>
+                                <Badge>Sequelize</Badge>
+                                <Badge>Socket.io</Badge>
+                                <Badge>MySQL</Badge>
                             </CardContent>
                         </Card>
                     </motion.div>
